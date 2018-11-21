@@ -1,0 +1,15 @@
+pull_request_rules:
+
+- name: merge action
+  actions:
+    merge:
+      method: rebase
+      rebase_fallback: merge
+      strict: false
+    delete_head_branch: {}
+    label:
+      remove:
+        - Merge Now
+  conditions:
+    - label!=no-mergify
+    - label=Merge Now
