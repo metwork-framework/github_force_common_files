@@ -48,7 +48,17 @@ git add --all
 N=$(git diff --cached |wc -l)
 if test "${N}" -gt 0; then
     git commit -m "chore: sync common files from resources repository"
-    git-pull-request --title="chore: sync common files from resources repository" --message="sync common files from resources repository" --target-remote=origin
+    git push -u origin -f common_files_force
+    SHA=$(git rev-parse HEAD)
+    metwork_valid_merge_logic_status.py "${REPONAME}" "${SHA}"
+    if test "${BRANCH}" = "master"; then
+        git checkout master
+    else
+        git checkout -b "${BRANCH}" --track "origin/${BRANCH}"
+    fi
+    git merge common_files_force
+    git push -u origin "${BRANCH}"
+    git push origin --delete common_files_force
 fi
 
 rm -Rf "${TMPREPO}"
