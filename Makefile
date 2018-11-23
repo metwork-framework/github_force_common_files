@@ -1,4 +1,4 @@
 include $(MFCOM_HOME)/share/plugin.mk
 
-all:
+custom::
 	cd src && make all

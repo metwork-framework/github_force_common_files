@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if test "${1:-}" = "DEBUG"; then
+    DEBUG=1
+else
+    DEBUG=0
+fi
 ORG=metwork-framework
 
 echo "Cloning resources repository..."
@@ -16,9 +21,17 @@ for I in 1 2 3 4 5; do
   for REPO in ${REPOS}; do
       echo "=> Working on repo: ${REPO}..."
       if test $I -ge 4; then
-        _force.sh "${REPO}" integration "${I}"
+          if test $DEBUG -eq 1; then
+              _force.sh "${REPO}" integration "${I}" DEBUG
+          else
+              _force.sh "${REPO}" integration "${I}"
+          fi
       else
-        _force.sh "${REPO}" master "${I}"
+          if test ${DEBUG} -eq 1; then
+             _force.sh "${REPO}" master "${I}" DEBUG
+          else
+             _force.sh "${REPO}" master "${I}"
+          fi
       fi
   done
 done
