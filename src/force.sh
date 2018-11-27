@@ -5,14 +5,23 @@ if test "${1:-}" = "DEBUG"; then
 else
     DEBUG=0
 fi
+if test "${2:-}" != ""; then
+    RESOURCES=$2
+else
+    RESOURCES=~/tmp/resources
+fi
 ORG=metwork-framework
 
-echo "Cloning resources repository..."
-rm -Rf ~/tmp/resources
-cd ~/tmp
-git clone "git@github.com:${ORG}/resources"
+if test "${2:-}" = ""; then
+    echo "Cloning resources repository..."
+    rm -Rf ~/tmp/resources
+    mkdir -p ~/tmp
+    cd ~/tmp || exit 1
+    git clone "https://github.com/${ORG}/resources.git"
+fi
 
-for I in 1 2 3 4 5; do
+#for I in 1 2 3 4 5; do
+for I in 4; do
   echo "**********************************"
   echo "***** INTEGRATION LEVEL ${I} *****"
   echo "**********************************"
@@ -22,13 +31,13 @@ for I in 1 2 3 4 5; do
       echo "=> Working on repo: ${REPO}..."
       if test $I -ge 4; then
           if test $DEBUG -eq 1; then
-              _force.sh "${REPO}" integration "${I}" DEBUG
+              _force.sh "${REPO}" integration "${I}" DEBUG ${RESOURCES}
           else
               _force.sh "${REPO}" integration "${I}"
           fi
       else
           if test ${DEBUG} -eq 1; then
-             _force.sh "${REPO}" master "${I}" DEBUG
+             _force.sh "${REPO}" master "${I}" DEBUG ${RESOURCES}
           else
              _force.sh "${REPO}" master "${I}"
           fi
@@ -36,4 +45,6 @@ for I in 1 2 3 4 5; do
   done
 done
 
-rm -Rf ~/tmp/resources
+if test "${2:-}" = ""; then
+    rm -Rf ~/tmp/resources
+fi
