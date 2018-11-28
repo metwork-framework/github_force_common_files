@@ -20,8 +20,7 @@ if test "${2:-}" = ""; then
     git clone "https://github.com/${ORG}/resources.git"
 fi
 
-#for I in 1 2 3 4 5; do
-for I in 4; do
+for I in 1 2 3 4 5; do
   echo "**********************************"
   echo "***** INTEGRATION LEVEL ${I} *****"
   echo "**********************************"
