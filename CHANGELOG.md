@@ -9,6 +9,7 @@
 
 ### Features
 
+* add debug options ([0a54e39](https://github.com/metwork-framework/github_force_common_files/commit/0a54e39))
 * add debug support ([95dfa05](https://github.com/metwork-framework/github_force_common_files/commit/95dfa05))
 * add REPO_HOME env var ([4705b0f](https://github.com/metwork-framework/github_force_common_files/commit/4705b0f))
 * add REPO_TOPICS env var ([63b2920](https://github.com/metwork-framework/github_force_common_files/commit/63b2920))
