@@ -50,9 +50,8 @@ REPO_TOPICS=$(metwork_topics.py --json "${ORG}" "${REPONAME}")
 export REPO_TOPICS
 export REPO_HOME="${TMPREPO}/${REPONAME}"
 cookiecutter --no-input --config-file ~/tmp/force.yaml ${RESOURCES_DIR}/cookiecutter
-shopt -s dotglob
-mv _${REPONAME}/* .
-shopt -u dotglob
+cp -Rf _${REPONAME}/* . |true
+cp -Rf _${REPONAME}/.* . 2>/dev/null | true
 rm -Rf "_${REPONAME}"
 git add --all
 N=$(git diff --cached |wc -l)
