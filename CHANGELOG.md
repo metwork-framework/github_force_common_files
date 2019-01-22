@@ -6,6 +6,7 @@
 - add REPO_TOPICS env var
 - add debug options
 - add debug support
+- allow to add some common file in subdirs
 - version version
 
 ### Fix
