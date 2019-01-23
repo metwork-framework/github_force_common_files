@@ -1,4 +1,4 @@
-all: ../local/bin/metwork_repos.py ../local/bin/metwork_topics.py ../local/bin/_force.sh ../local/bin/force.sh ../local/bin/metwork_valid_merge_logic_status.py
+all: ../local/bin/metwork_repos.py ../local/bin/metwork_topics.py ../local/bin/_force.sh ../local/bin/force.sh ../local/bin/force_experimental.sh ../local/bin/metwork_valid_merge_logic_status.py
 
 ../local/bin/metwork_repos.py:
 	mkdir -p ../local/bin
@@ -21,6 +21,11 @@ all: ../local/bin/metwork_repos.py ../local/bin/metwork_topics.py ../local/bin/_
 	chmod +x $@
 
 ../local/bin/force.sh: force.sh
+	mkdir -p ../local/bin
+	cp -f $< $@
+	chmod +x $@
+
+../local/bin/force_experimental.sh: force_experimental.sh
 	mkdir -p ../local/bin
 	cp -f $< $@
 	chmod +x $@
