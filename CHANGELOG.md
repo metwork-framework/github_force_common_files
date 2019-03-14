@@ -7,6 +7,7 @@
 - add REPO_TOPICS env var
 - add debug options
 - add debug support
+- add shell to force common files in only one repo
 - allow to add some common file in subdirs
 - version version
 
