@@ -1,15 +1,23 @@
-<a name="unreleased"></a>
+# CHANGELOG
+
+
 ## [Unreleased]
 
-### Feat
-- Add a shell to force common files in modules experimental branch from template files in resource experimental branch
-- add REPO_HOME env var
-- add REPO_TOPICS env var
+### New Features
+- add shell to force common files in only one repo
+- Add a shell to force common files in modules experimental branch
+- allow to add some common file in subdirs
 - add debug options
 - add debug support
-- allow to add some common file in subdirs
+- add REPO_HOME env var
+- add REPO_TOPICS env var
 - version version
 
-### Fix
+
+### Bug Fixes
 - rename plugin
+
+
+
+
 
