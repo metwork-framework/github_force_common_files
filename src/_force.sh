@@ -4,7 +4,7 @@ set -e
 
 ORG=metwork-framework
 if test "${3:-}" = ""; then
-    echo "_force.sh REPO-NAME BRANCH INTEGRATION_LEVEL [DEBUG] [RESOURCES_DIR]"
+    echo "_force.sh REPO-NAME BRANCH INTEGRATION_LEVEL [DEBUG] [RESOURCES_DIR]"
     exit 1
 fi
 if test "${4:-}" = "DEBUG"; then
@@ -53,6 +53,9 @@ cookiecutter --no-input --config-file ~/tmp/force.yaml ${RESOURCES_DIR}/cookiecu
 cp -Rf _${REPONAME}/* . |true
 cp -Rf _${REPONAME}/.* . 2>/dev/null | true
 rm -Rf "_${REPONAME}"
+find . -type f -name "*.forcedelete" |sed 's/\.forcedelete$//g' |xargs rm -f
+find . -type f -name "*.forcedelete" -exec rm -f {} \;
+git add -u
 git add --all
 N=$(git diff --cached |wc -l)
 if test "${N}" -gt 0; then
@@ -61,7 +64,7 @@ if test "${N}" -gt 0; then
         echo "***** DIFF FOR REPO ${REPONAME} (BRANCH: ${BRANCH}, INTEGRATION_LEVEL: ${INTEGRATION_LEVEL}) *****"
         git status
         git diff --cached
-        echo 
+        echo
         echo
     else
         git commit -m "chore: sync common files from resources repository"
