@@ -4,6 +4,7 @@
 ## [Unreleased]
 
 ### New Features
+- add forcedelete feature
 - add experimental2 tools
 - add shell to force common files in only one repo
 - Add a shell to force common files in modules experimental branch
