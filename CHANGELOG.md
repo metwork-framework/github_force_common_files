@@ -4,6 +4,7 @@
 ## [Unreleased]
 
 ### New Features
+- introduce improve_readme
 - add forcedelete feature
 - add experimental2 tools
 - add shell to force common files in only one repo
