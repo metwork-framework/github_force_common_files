@@ -53,7 +53,7 @@ cookiecutter --no-input --config-file ~/tmp/force.yaml ${RESOURCES_DIR}/cookiecu
 cp -Rf _${REPONAME}/* . |true
 cp -Rf _${REPONAME}/.* . 2>/dev/null | true
 rm -Rf "_${REPONAME}"
-find . -type f -name "*.forcedelete" |sed 's/\.forcedelete$//g' |xargs rm -f
+find . -type f -name "*.forcedelete" |sed 's/\.forcedelete$//g' |xargs rm -rf
 find . -type f -name "*.forcedelete" -exec rm -f {} \;
 git add -u
 git add --all
