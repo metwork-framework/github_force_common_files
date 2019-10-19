@@ -4,6 +4,7 @@
 ## [Unreleased]
 
 ### New Features
+- We can force delete directories (not only files)
 - introduce improve_readme
 - add forcedelete feature
 - add experimental2 tools
