@@ -1,17 +1,14 @@
 # github_force_common_files
 
-[//]: # (automatically generated from https://github.com/metwork-framework/resources/blob/master/cookiecutter/_%7B%7Bcookiecutter.repo%7D%7D/README.md)
+[//]: # (automatically generated from https://github.com/metwork-framework/github_organization_management/blob/master/common_files/README.md)
 
 **Status (master branch)**
-
 
 
 
 [![Drone CI](http://metwork-framework.org:8000/api/badges/metwork-framework/github_force_common_files/status.svg)](http://metwork-framework.org:8000/metwork-framework/github_force_common_files)
 [![Maintenance](https://github.com/metwork-framework/resources/blob/master/badges/maintained.svg)]()
 
-
-[//]: # (TABLE_OF_CONTENTS_PLACEHOLDER)
 
 
 
@@ -34,11 +31,6 @@ Deploy it as a mfserv plugin and that's it.
 `_force.sh REPO-NAME BRANCH INTEGRATION_LEVEL DEBUG [RESOURCES_DIR]` to test your changes.
 
 **DO NOT INSTALL THIS PLUGIN ON A DEBUG MACHINE TO AVOID THE CRONTAB TO BE INSTALLED**
-
-
-
-
-
 
 
 
